@@ -52,7 +52,8 @@ CREATE TABLE piece(
     description VARCHAR2(255),
     room_id NUMBER(7) CONSTRAINT fk_piece_room REFERENCES room (id),
     archive_status BOOLEAN NOT NULL,
-    era VARCHAR2(50)
+    era VARCHAR2(50),
+    CONSTRAINT ck_piece_era CHECK (era IN ('Renaissance', 'Baroque', 'Romanticism', 'Neoclassicism', 'Impressionism', 'Surrealism', 'Dutch Golden Age'))
 );
 
 
@@ -108,6 +109,9 @@ INSERT INTO piece VALUES (8,  'Death of the Virgin',               10,  'Paintin
 INSERT INTO piece VALUES (9,  'The Lacemaker',                      7,  'Painting', 'Small intimate scene of a woman making lace, c. 1670.',        5, 0, 'Dutch Golden Age');
 INSERT INTO piece VALUES (10, 'The Astronomer',                     7,  'Painting', 'Scholar studying a celestial globe, 1668.',                    5, 0, 'Dutch Golden Age');
 INSERT INTO piece VALUES (11, 'Bathsheba at Her Bath',              8,  'Painting', 'Rembrandt''s 1654 painting. Currently in storage.',            5, 1, 'Dutch Golden Age');
-INSERT INTO piece VALUES (12, 'The Cheat with the Ace of Diamonds', 9,  'Painting', 'Candlelit card-game scene from the 1630s.',                    6, 0, 'French Baroque');
+INSERT INTO piece VALUES (12, 'The Cheat with the Ace of Diamonds', 9,  'Painting', 'Candlelit card-game scene from the 1630s.',                    6, 0, 'Baroque');
 
 COMMIT;
+
+
+
